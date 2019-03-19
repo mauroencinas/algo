@@ -63,19 +63,19 @@
         import_tasks: playbooks/cloud-pre.yml
         become: false
 
-      - include_role:
+      - import_role:
           name: common
 
-      - include_role:
+      - import_role:
           name: wireguard
         when: wireguard_enabled
 
-      - include_role:
+      - import_role:
           name: strongswan
         when: ipsec_enabled
         tags: ipsec
 
-      - include_role:
+      - import_role:
           name: ssh_tunneling
         when: algo_ssh_tunneling
 

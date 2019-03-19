@@ -7,31 +7,31 @@
     - config.cfg
   tasks:
     - block:
-      - include_role:
+      - import_role:
           name: common
         tags: common
 
-      - include_role:
+      - import_role:
           name: dns_encryption
         when: dns_encryption
         tags: dns_encryption
 
-      - include_role:
+      - import_role:
           name: dns_adblocking
         when: algo_local_dns
         tags: dns_adblocking
 
-      - include_role:
+      - import_role:
           name: wireguard
         when: wireguard_enabled
         tags: wireguard
 
-      - include_role:
+      - import_role:
           name: strongswan
         when: ipsec_enabled
         tags: ipsec
 
-      - include_role:
+      - import_role:
           name: ssh_tunneling
         when: algo_ssh_tunneling
         tags: ssh_tunneling
